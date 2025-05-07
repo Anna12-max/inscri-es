@@ -16,5 +16,11 @@
     "url": "https://github.com/Anna12-max/inscri-es/issues"
   },
   "homepage": "https://github.com/Anna12-max/inscri-es#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "nodemailer": "^7.0.2"
+  }
 }

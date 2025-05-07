@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Formulário de Inscrição</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 p-6">
   <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
     <h1 class="text-2xl font-bold mb-6 text-center">Formulário de Inscrição</h1>
-    <form action="#" method="POST" enctype="multipart/form-data" class="space-y-4">
-      
+    <form id="formInscricao" class="space-y-4">
       <div>
         <label class="block font-semibold mb-1">Nome Completo</label>
-        <input type="text" name="nome" required class="w-full border rounded-lg p-2"/>
+        <input type="text" name="nome" required class="w-full border rounded-lg p-2" />
       </div>
 
       <div>
         <label class="block font-semibold mb-1">Idade</label>
-        <input type="number" name="idade" required class="w-full border rounded-lg p-2"/>
+        <input type="number" name="idade" required class="w-full border rounded-lg p-2" />
       </div>
 
       <div>
@@ -34,27 +33,27 @@
 
       <div>
         <label class="block font-semibold mb-1">Cidade</label>
-        <input type="text" name="cidade" required class="w-full border rounded-lg p-2"/>
+        <input type="text" name="cidade" required class="w-full border rounded-lg p-2" />
       </div>
 
       <div>
         <label class="block font-semibold mb-1">Bairro</label>
-        <input type="text" name="bairro" required class="w-full border rounded-lg p-2"/>
+        <input type="text" name="bairro" required class="w-full border rounded-lg p-2" />
       </div>
 
       <div>
         <label class="block font-semibold mb-1">WhatsApp</label>
-        <input type="tel" name="whatsapp" placeholder="(99) 99999-9999" required class="w-full border rounded-lg p-2"/>
+        <input type="tel" name="whatsapp" placeholder="(99) 99999-9999" required class="w-full border rounded-lg p-2" />
       </div>
 
       <div>
         <label class="block font-semibold mb-1">E-mail</label>
-        <input type="email" name="email" required class="w-full border rounded-lg p-2"/>
+        <input type="email" name="email" required class="w-full border rounded-lg p-2" />
       </div>
 
       <div>
         <label class="block font-semibold mb-1">Grave um vídeo respondendo:<br>Por que você quer participar?</label>
-        <input type="file" name="video" accept="video/*" required class="w-full border rounded-lg p-2"/>
+        <input type="file" name="video" accept="video/*" required class="w-full border rounded-lg p-2" />
       </div>
 
       <div class="text-center">
@@ -64,5 +63,33 @@
       </div>
     </form>
   </div>
+
+  <script>
+    document.getElementById("formInscricao").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch("http://localhost:3000/enviar-inscricao", {
+          method: "POST",
+          body: formData
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          alert("Inscrição enviada com sucesso!");
+          form.reset();
+        } else {
+          alert("Erro ao enviar: " + result.error);
+        }
+      } catch (err) {
+        alert("Erro inesperado ao enviar inscrição.");
+        console.error(err);
+      }
+    });
+  </script>
 </body>
 </html>
