@@ -19,7 +19,7 @@ app.post("/enviar-inscricao", upload.single("video"), async (req, res) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "anabarbarasilva45@gmail.com", // ⬅️ SUBSTITUA pelo seu Gmail
+      user: "annabarbarasilva45@gmail.com", // ⬅️ SUBSTITUA pelo seu Gmail
       pass: "uzdq vqip ulkl lqfw"         // ⬅️ SENHA de aplicativo gerada pelo Google
     }
   });
@@ -57,3 +57,4 @@ Email: ${email}`,
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
+//http://localhost:3000
