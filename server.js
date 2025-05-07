@@ -19,8 +19,8 @@ app.post("/enviar-inscricao", upload.single("video"), async (req, res) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "SEU_EMAIL@gmail.com", // ⬅️ SUBSTITUA pelo seu Gmail
-      pass: "SENHA_DO_APP"         // ⬅️ SENHA de aplicativo gerada pelo Google
+      user: "anabarbarasilva45@gmail.com", // ⬅️ SUBSTITUA pelo seu Gmail
+      pass: "uzdq vqip ulkl lqfw"         // ⬅️ SENHA de aplicativo gerada pelo Google
     }
   });
 
