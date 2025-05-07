@@ -20,7 +20,7 @@ app.post("/enviar-inscricao", upload.single("video"), async (req, res) => {
     service: "gmail",
     auth: {
       user: "annabarbarasilva45@gmail.com", // ⬅️ SUBSTITUA pelo seu Gmail
-      pass: "uzdq vqip ulkl lqfw"         // ⬅️ SENHA de aplicativo gerada pelo Google
+      pass: "uzdqvqipulkllqfw"         // ⬅️ SENHA de aplicativo gerada pelo Google
     }
   });
 
